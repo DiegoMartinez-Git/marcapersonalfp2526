@@ -18,9 +18,11 @@
                 </a>
             </p>
             <footer>
-                <p>Fecha inicio: {{$proyecto['metadatos']['fecha_inicio']}}</p>
-                <p>Fecha fin: {{$proyecto['metadatos']['fecha_fin']}}</p>
-                <p>Calificacion: {{$proyecto['metadatos']['calificacion']}}</p>
+                <ul>
+                    @foreach ($proyecto['metadatos'] as $indice => $metadato)
+                        <li>{{ $indice }}: {{ $metadato }}</li>
+                    @endforeach
+                </ul>
                 @if ($proyecto['metadatos']['calificacion'] >= 5)
                     <p>Estado: <strong style="color: green;">Proyecto aprobado<strong></p>
                     <button class="btn" >Suspender proyecto</button>
